@@ -11,10 +11,17 @@ const LatestBlocks = Loadable({
   loading: Loading
 });
 
+const Transactions = Loadable({
+  loader: () => import('./pages/Transactions'),
+  delay: 300,
+  loading: Loading
+});
+
 const Routes = () => {
   return (
     <Switch>
       <Route path="/" exact component={LatestBlocks} />
+      <Route path="/:blockNumber" component={Transactions} />
     </Switch>
   );
 };
