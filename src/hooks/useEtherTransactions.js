@@ -13,6 +13,7 @@ const getRange = (array, start, size) => {
 
 const hasEther = tx => +tx.value;
 
+let didCancel = false;
 const useEtherTransactions = ({ ids, pageSize = 5 } = {}) => {
   const [current, setCurrent] = useState(0);
   const [fetching, setFetching] = useState(true);
@@ -20,7 +21,11 @@ const useEtherTransactions = ({ ids, pageSize = 5 } = {}) => {
 
   const refCurrent = useRef(0);
   useEffect(() => {
+    didCancel = false;
     refCurrent.current = current;
+    return () => {
+      didCancel = true;
+    };
   });
 
   const hasMore = ids && current < ids.length;
@@ -31,6 +36,9 @@ const useEtherTransactions = ({ ids, pageSize = 5 } = {}) => {
       getRange(ids, refCurrent.current, pageSize).map(web3.getTransaction)
     );
     const etherTransactions = results.filter(hasEther);
+
+    if (didCancel) return;
+
     setCurrent(current => current + pageSize);
     if (etherTransactions.length === 0 && hasMore) {
       return await fetchMore();
