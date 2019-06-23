@@ -4,6 +4,7 @@ import { Badge } from '@aragon/ui';
 import Section from '../../components/Section';
 import GroupField from '../../components/GroupField';
 import LoadingHelper from '../../components/LoadingHelper';
+import CopyButton from '../../components/CopyButton';
 import useTransactionReceipt from '../../hooks/useTransactionReceipt';
 import { formatNumber } from '../../utils';
 
@@ -13,8 +14,8 @@ const TransactionReceipt = ({ hash }) => {
   return (
     <Section title="Transaction Receipt ">
       <LoadingHelper fetching={fetching} items={result}>
-        <GroupField label="From" value={result.from} />
-        <GroupField label="To" value={result.to} />
+        <GroupField label="From" value={result.from} copyValue />
+        <GroupField label="To" value={result.to} copyValue />
         <GroupField
           label="Status"
           value={<Badge>{result.status ? 'SUCCESS' : 'FAILED'}</Badge>}

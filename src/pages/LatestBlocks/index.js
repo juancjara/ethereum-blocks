@@ -6,6 +6,7 @@ import { Text, TableRow, TableCell, CircleGraph } from '@aragon/ui';
 
 import { shortenAddress, formatNumber } from '../../utils';
 import LoadingHelper from '../../components/LoadingHelper';
+import CopyButton from '../../components/CopyButton';
 import Page from '../../components/Page';
 import ResponsiveTable from '../../components/ResponsiveTable';
 import useLatestBlocks from '../../hooks/useLatestBlocks';
@@ -33,7 +34,10 @@ const LatestBlocks = () => {
             ({ number, miner, transactions, gasLimit, gasUsed, timestamp }) => (
               <TableRow key={number}>
                 <TableCell>{number}</TableCell>
-                <TableCell>{shortenAddress(miner)}</TableCell>
+                <TableCell>
+                  {shortenAddress(miner)}
+                  <CopyButton text={miner} />
+                </TableCell>
                 <TableCell>
                   <Link to={`/${number}`}>{transactions.length}</Link>
                 </TableCell>

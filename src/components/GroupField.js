@@ -3,7 +3,9 @@ import PropType from 'prop-types';
 import { theme, Text } from '@aragon/ui';
 import 'styled-components/macro';
 
-const GroupField = ({ label, value }) => {
+import CopyButton from './CopyButton';
+
+const GroupField = ({ label, value, copyValue }) => {
   return (
     <div css="display: flex; flex-direction: column; padding: 8px 0;">
       <Text color={theme.textDimmed} weight="bolder">
@@ -13,6 +15,7 @@ const GroupField = ({ label, value }) => {
         <Text size="small" css="word-wrap: break-word;">
           {value}
         </Text>
+        {copyValue && <CopyButton text={value} />}
       </p>
     </div>
   );
@@ -21,6 +24,11 @@ const GroupField = ({ label, value }) => {
 GroupField.propTypes = {
   label: PropType.string.isRequired,
   value: PropType.any,
+  copyValue: PropType.bool,
+};
+
+GroupField.defaultProps = {
+  copyValue: false,
 };
 
 export default GroupField;

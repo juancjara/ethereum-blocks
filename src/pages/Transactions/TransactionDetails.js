@@ -22,12 +22,12 @@ const TransactionDetails = ({ transaction }) => {
         Transaction Details
       </Text>
       <Section title="Block information">
-        <GroupField label="Hash" value={transaction.blockHash} />
-        <GroupField label="Number" value={transaction.blockNumber} />
+        <GroupField label="Hash" value={transaction.blockHash} copyValue />
+        <GroupField label="Number" value={transaction.blockNumber} copyValue />
       </Section>
       <Divider />
       <Section title="Transaction ">
-        <GroupField label="Hash" value={transaction.hash} />
+        <GroupField label="Hash" value={transaction.hash} copyValue />
         <GroupField
           label="Index in block"
           value={transaction.transactionIndex}

@@ -7,6 +7,7 @@ import web3 from '../../web3';
 import Button from '../../components/Button';
 import LoadingHelper from '../../components/LoadingHelper';
 import ResponsiveTable from '../../components/ResponsiveTable';
+import CopyButton from '../../components/CopyButton';
 import useEtherTransactions from '../../hooks/useEtherTransactions';
 import TransactionDetails from './TransactionDetails';
 
@@ -43,12 +44,15 @@ const TransactionList = ({ ids }) => {
               <Button mode="outline" onClick={() => setSelectedTransaction(tx)}>
                 <Text>{shortenAddress(tx.hash)}</Text>
               </Button>
+              <CopyButton text={tx.hash} />
             </TableCell>
             <TableCell>
-              <Text>{shortenAddress(tx.from)}</Text>
+              <Text>{shortenAddress(tx.from)} </Text>
+              <CopyButton text={tx.from} />
             </TableCell>
             <TableCell>
-              <Text>{shortenAddress(tx.to)}</Text>
+              <Text>{shortenAddress(tx.to)} </Text>
+              <CopyButton text={tx.to} />
             </TableCell>
             <TableCell>
               <Text>{web3.fromWei(tx.value, 'ether')}</Text>
