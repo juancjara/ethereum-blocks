@@ -4,7 +4,6 @@ import { Badge } from '@aragon/ui';
 import Section from '../../components/Section';
 import GroupField from '../../components/GroupField';
 import LoadingHelper from '../../components/LoadingHelper';
-import CopyButton from '../../components/CopyButton';
 import useTransactionReceipt from '../../hooks/useTransactionReceipt';
 import { formatNumber } from '../../utils';
 
