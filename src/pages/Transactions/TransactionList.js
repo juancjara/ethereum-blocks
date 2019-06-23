@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { TableRow, TableCell, Text } from '@aragon/ui';
+import { TableRow, TableCell, Text, Modal } from '@aragon/ui';
 
 import { shortenAddress, formatNumber } from '../../utils';
 import web3 from '../../web3';
@@ -8,8 +8,10 @@ import Button from '../../components/Button';
 import LoadingHelper from '../../components/LoadingHelper';
 import ResponsiveTable from '../../components/ResponsiveTable';
 import useEtherTransactions from '../../hooks/useEtherTransactions';
+import TransactionDetails from './TransactionDetails';
 
 const TransactionList = ({ ids }) => {
+  const [selectedTransaction, setSelectedTransaction] = useState();
   const { fetching, hasMore, fetchMore, transactions } = useEtherTransactions({
     ids,
   });
@@ -19,6 +21,12 @@ const TransactionList = ({ ids }) => {
       items={transactions}
       noItemsMessage="This block has no ether transactions."
     >
+      <Modal
+        visible={!!selectedTransaction}
+        onClose={() => setSelectedTransaction(null)}
+      >
+        <TransactionDetails transaction={selectedTransaction} />
+      </Modal>
       <ResponsiveTable
         headers={[
           'Hash',
@@ -32,7 +40,9 @@ const TransactionList = ({ ids }) => {
         {transactions.map(tx => (
           <TableRow key={tx.hash}>
             <TableCell>
-              <Text>{shortenAddress(tx.hash)}</Text>
+              <Button mode="outline" onClick={() => setSelectedTransaction(tx)}>
+                <Text>{shortenAddress(tx.hash)}</Text>
+              </Button>
             </TableCell>
             <TableCell>
               <Text>{shortenAddress(tx.from)}</Text>
