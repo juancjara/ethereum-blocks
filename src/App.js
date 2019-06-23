@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Main, AppView, AppBar } from '@aragon/ui';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
+import Routes from './Routes';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Main>
+      <BrowserRouter>
+        <AppView appBar={<AppBar title="Aragon Test" />}>
+          <Routes />
+        </AppView>
+      </BrowserRouter>
+    </Main>
   );
-}
+};
 
 export default App;
