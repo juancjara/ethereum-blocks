@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Text } from '@aragon/ui';
 
 const Page = ({ title, children }) => {
@@ -8,6 +9,11 @@ const Page = ({ title, children }) => {
       {children}
     </>
   );
+};
+
+Page.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired
 };
 
 export default Page;
