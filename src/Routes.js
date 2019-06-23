@@ -8,13 +8,13 @@ const Loading = ({ pastDelay }) => (pastDelay ? <LoadingRing /> : null);
 const LatestBlocks = Loadable({
   loader: () => import('./pages/LatestBlocks'),
   delay: 300,
-  loading: Loading
+  loading: Loading,
 });
 
 const Transactions = Loadable({
   loader: () => import('./pages/Transactions'),
   delay: 300,
-  loading: Loading
+  loading: Loading,
 });
 
 const Routes = () => {
