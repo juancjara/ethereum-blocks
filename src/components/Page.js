@@ -1,11 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Text } from '@aragon/ui';
+import React from "react";
+import PropTypes from "prop-types";
+import "styled-components/macro";
+import { Text } from "@aragon/ui";
 
 const Page = ({ title, children }) => {
   return (
     <>
-      <Text size="xlarge">{title}</Text>
+      <Text size="xlarge" css="margin: 8px 0;">
+        {title}
+      </Text>
       {children}
     </>
   );
