@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Main>
       <BrowserRouter>
-        <AppView appBar={<AppBar title="Aragon Test" />}>
+        <AppView appBar={<div />}>
           <Routes />
         </AppView>
       </BrowserRouter>
