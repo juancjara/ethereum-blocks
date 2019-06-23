@@ -16,5 +16,6 @@ export default {
   getBlockNumber: () => web3.eth.getBlockNumber(),
   getBlock: number => web3.eth.getBlock(number),
   getTransaction: tx => web3.eth.getTransaction(tx),
-  fromWei
+  getTransactionReceipt: tx => web3.eth.getTransactionReceipt(tx),
+  fromWei,
 };
