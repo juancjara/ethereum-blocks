@@ -7,7 +7,7 @@ const setUp = () => {
   if (typeof web3 !== 'undefined') {
     web3 = new Web3(web3.currentProvider);
   } else {
-    throw Error('MetaMask installation is required');
+    throw 'MetaMask installation is required';
   }
 };
 
