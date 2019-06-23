@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
-import web3 from "../web3";
+import web3 from '../web3';
 
 const useTransactionIds = blockNumber => {
   const [ids, setIds] = useState();
@@ -10,6 +10,7 @@ const useTransactionIds = blockNumber => {
       setIds(transactions);
     };
     fetchBlock();
+    return;
   }, [blockNumber]);
 
   return { transactionIds: ids };

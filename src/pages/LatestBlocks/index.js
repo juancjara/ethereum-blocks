@@ -26,7 +26,7 @@ const LatestBlocks = () => {
             'Transactions',
             'Gas',
             '% Gas used',
-            'Date time (MM-DD HH:mm)'
+            'Date time (MM-DD HH:mm)',
           ]}
         >
           {blocks.map(

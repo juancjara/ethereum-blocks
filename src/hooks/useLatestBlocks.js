@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import Q from "promise";
+import { useState, useEffect } from 'react';
+import Q from 'promise';
 
-import web3 from "../web3";
+import web3 from '../web3';
 
 const useLatestBlocks = numBlocks => {
   const [fetching, setFetching] = useState(true);
@@ -25,7 +25,7 @@ const useLatestBlocks = numBlocks => {
 
   return {
     fetching,
-    blocks
+    blocks,
   };
 };
 

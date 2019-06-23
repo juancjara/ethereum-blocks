@@ -1,7 +1,7 @@
-import { useState, useEffect, useRef } from "react";
-import Q from "q";
+import { useState, useEffect, useRef } from 'react';
+import Q from 'q';
 
-import web3 from "../web3";
+import web3 from '../web3';
 
 const getRange = (array, start, size) => {
   const res = [];
@@ -48,7 +48,7 @@ const useEtherTransactions = ({ ids, pageSize = 5 } = {}) => {
     hasMore,
     fetchMore,
     fetching,
-    transactions
+    transactions,
   };
 };
 

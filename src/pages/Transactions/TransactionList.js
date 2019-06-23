@@ -1,16 +1,17 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { TableRow, TableCell, Text } from "@aragon/ui";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { TableRow, TableCell, Text } from '@aragon/ui';
 
-import { shortenAddress, formatNumber } from "../../utils";
-import web3 from "../../web3";
-import LoadingHelper from "../../components/LoadingHelper";
-import ResponsiveTable from "../../components/ResponsiveTable";
-import useEtherTransactions from "../../hooks/useEtherTransactions";
+import { shortenAddress, formatNumber } from '../../utils';
+import web3 from '../../web3';
+import Button from '../../components/Button';
+import LoadingHelper from '../../components/LoadingHelper';
+import ResponsiveTable from '../../components/ResponsiveTable';
+import useEtherTransactions from '../../hooks/useEtherTransactions';
 
 const TransactionList = ({ ids }) => {
   const { fetching, hasMore, fetchMore, transactions } = useEtherTransactions({
-    ids
+    ids,
   });
   return (
     <LoadingHelper
@@ -20,12 +21,12 @@ const TransactionList = ({ ids }) => {
     >
       <ResponsiveTable
         headers={[
-          "Hash",
-          "From",
-          "To",
-          "Value (Eth)",
-          "Gas",
-          "Gas Price (Eth)"
+          'Hash',
+          'From',
+          'To',
+          'Value (Eth)',
+          'Gas',
+          'Gas Price (Eth)',
         ]}
       >
         {transactions.map(tx => (
@@ -40,23 +41,37 @@ const TransactionList = ({ ids }) => {
               <Text>{shortenAddress(tx.to)}</Text>
             </TableCell>
             <TableCell>
-              <Text>{web3.fromWei(tx.value, "ether")}</Text>
+              <Text>{web3.fromWei(tx.value, 'ether')}</Text>
             </TableCell>
             <TableCell>
               <Text>{formatNumber(tx.gas)}</Text>
             </TableCell>
             <TableCell>
-              <Text>{web3.fromWei(tx.gasPrice, "ether")}</Text>
+              <Text>{web3.fromWei(tx.gasPrice, 'ether')}</Text>
             </TableCell>
           </TableRow>
         ))}
+        {hasMore && (
+          <TableRow>
+            <TableCell colSpan={6}>
+              <Button
+                disabled={fetching}
+                loading={fetching}
+                onClick={fetchMore}
+                mode="strong"
+              >
+                Fetch more
+              </Button>
+            </TableCell>
+          </TableRow>
+        )}
       </ResponsiveTable>
     </LoadingHelper>
   );
 };
 
 TransactionList.propTypes = {
-  ids: PropTypes.array
+  ids: PropTypes.array,
 };
 
 export default TransactionList;
