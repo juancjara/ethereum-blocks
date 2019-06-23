@@ -1,4 +1,5 @@
 import React from 'react';
+import 'styled-components/macro';
 import { Link } from 'react-router-dom';
 import fecha from 'fecha';
 import { Text, TableRow, TableCell, CircleGraph } from '@aragon/ui';
@@ -37,18 +38,11 @@ const LatestBlocks = () => {
                   <Link to={`/${number}`}>{transactions.length}</Link>
                 </TableCell>
                 <TableCell>
-                  <div style={{ display: 'flex', alignItems: 'center' }}>
-                    <div
-                      style={{
-                        display: 'flex',
-                        flexDirection: 'column'
-                      }}
-                    >
-                      <Text color={CircleGraphColor}>
-                        used: {formatNumber(gasUsed)}
-                      </Text>
-                      <Text>limit: {formatNumber(gasLimit)}</Text>
-                    </div>
+                  <div css="display: flex; flex-direction: column;">
+                    <Text color={CircleGraphColor}>
+                      used: {formatNumber(gasUsed)}
+                    </Text>
+                    <Text>limit: {formatNumber(gasLimit)}</Text>
                   </div>
                 </TableCell>
                 <TableCell>
