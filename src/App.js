@@ -1,5 +1,5 @@
 import React from 'react';
-import { Main, AppView, AppBar } from '@aragon/ui';
+import { Main, AppView } from '@aragon/ui';
 import { BrowserRouter } from 'react-router-dom';
 import web3 from './web3';
 

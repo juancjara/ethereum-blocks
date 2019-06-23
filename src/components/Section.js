@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'styled-components/macro';
-import { Text, theme } from '@aragon/ui';
+import { Text } from '@aragon/ui';
 
 const Section = ({ title, children }) => {
   return (
