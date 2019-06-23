@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import { LoadingRing, Button as AragonButton } from "@aragon/ui";
+import { LoadingRing, Button as AragonButton } from '@aragon/ui';
 
 const StyledButton = styled(AragonButton)`
   display: flex;
@@ -20,12 +20,12 @@ const Button = ({ loading, children, ...props }) => {
 };
 
 Button.propTypes = {
-  children: PropTypes.string.isRequired,
-  loading: PropTypes.bool
+  children: PropTypes.node.isRequired,
+  loading: PropTypes.bool,
 };
 
 Button.defaultProps = {
-  loading: false
+  loading: false,
 };
 
 export default Button;
