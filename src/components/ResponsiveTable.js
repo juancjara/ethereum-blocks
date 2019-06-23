@@ -30,7 +30,7 @@ const ResponsiveTable = ({ headers, children, minWidth }) => {
 };
 
 ResponsiveTable.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.node.isRequired,
   headers: PropTypes.array.isRequired,
   minWidth: PropTypes.string
 };
