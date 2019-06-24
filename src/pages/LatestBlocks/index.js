@@ -33,7 +33,7 @@ const LatestBlocks = () => {
           {blocks.map(
             ({ number, miner, transactions, gasLimit, gasUsed, timestamp }) => (
               <TableRow key={number}>
-                <TableCell>{number}</TableCell>
+                <TableCell data-testid={number}>{number}</TableCell>
                 <TableCell>
                   {shortenAddress(miner)}
                   <CopyButton text={miner} />
