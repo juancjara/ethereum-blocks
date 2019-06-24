@@ -4,7 +4,6 @@ import { render, cleanup, waitForElement } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
 import LatestBlocks from './';
-const sleep = time => new Promise(resolve => setTimeout(resolve, time));
 
 //Remove warnings
 //https://github.com/testing-library/react-testing-library/issues/281#issuecomment-480349256
