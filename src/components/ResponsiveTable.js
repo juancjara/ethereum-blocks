@@ -9,6 +9,9 @@ const Wrapper = styled.div`
 
 const StyledTable = styled(Table)`
   min-width: ${props => props.minWidth};
+  td > div {
+    justify-content: flex-start;
+  }
 `;
 
 const ResponsiveTable = ({ headers, children, minWidth }) => {
@@ -32,11 +35,11 @@ const ResponsiveTable = ({ headers, children, minWidth }) => {
 ResponsiveTable.propTypes = {
   children: PropTypes.node.isRequired,
   headers: PropTypes.array.isRequired,
-  minWidth: PropTypes.string
+  minWidth: PropTypes.string,
 };
 
 ResponsiveTable.defaultProps = {
-  minWidth: '600px'
+  minWidth: '600px',
 };
 
 export default ResponsiveTable;

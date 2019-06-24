@@ -12,10 +12,10 @@ const GroupField = ({ label, value, copyValue }) => {
         {label}:
       </Text>
       <p>
+        {copyValue && <CopyButton text={value} />}
         <Text size="small" css="word-wrap: break-word;">
           {value}
         </Text>
-        {copyValue && <CopyButton text={value} />}
       </p>
     </div>
   );

@@ -35,8 +35,8 @@ const LatestBlocks = () => {
               <TableRow key={number}>
                 <TableCell data-testid={number}>{number}</TableCell>
                 <TableCell>
-                  {shortenAddress(miner)}
                   <CopyButton text={miner} />
+                  {shortenAddress(miner)}
                 </TableCell>
                 <TableCell>
                   <Link to={`/${number}`}>{transactions.length}</Link>

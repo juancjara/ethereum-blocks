@@ -11,7 +11,7 @@ const CopyButton = ({ text }) => {
     <Toast>
       {toast => (
         <Button
-          css="margin-left: 4px;"
+          css="margin-right: 8px;"
           mode="secondary"
           size="small"
           onClick={async () => {

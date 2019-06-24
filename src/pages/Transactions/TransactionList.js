@@ -41,18 +41,18 @@ const TransactionList = ({ ids }) => {
         {transactions.map(tx => (
           <TableRow key={tx.hash}>
             <TableCell data-testid={tx.hash}>
+              <CopyButton text={tx.hash} />
               <Button mode="outline" onClick={() => setSelectedTransaction(tx)}>
                 <Text>{shortenAddress(tx.hash)}</Text>
               </Button>
-              <CopyButton text={tx.hash} />
             </TableCell>
             <TableCell>
-              <Text>{shortenAddress(tx.from)} </Text>
               <CopyButton text={tx.from} />
+              <Text>{shortenAddress(tx.from)} </Text>
             </TableCell>
             <TableCell>
-              <Text>{shortenAddress(tx.to)} </Text>
               <CopyButton text={tx.to} />
+              <Text>{shortenAddress(tx.to)} </Text>
             </TableCell>
             <TableCell>
               <Text>{web3.fromWei(tx.value, 'ether')}</Text>
