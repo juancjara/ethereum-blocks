@@ -40,7 +40,7 @@ const TransactionList = ({ ids }) => {
       >
         {transactions.map(tx => (
           <TableRow key={tx.hash}>
-            <TableCell>
+            <TableCell data-testid={tx.hash}>
               <Button mode="outline" onClick={() => setSelectedTransaction(tx)}>
                 <Text>{shortenAddress(tx.hash)}</Text>
               </Button>
