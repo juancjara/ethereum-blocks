@@ -16,6 +16,7 @@ const Divider = styled.div`
 `;
 
 const TransactionDetails = ({ transaction }) => {
+  if (!transaction) return null;
   return (
     <>
       <Text weight="bold" size="xxlarge" css="display: block; margin: 30px 0;">
