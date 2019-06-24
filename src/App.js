@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Info, Main, AppView, ToastHub, LoadingRing } from '@aragon/ui';
-import { BrowserRouter } from 'react-router-dom';
-import web3 from './web3';
+import { Info, AppView, LoadingRing } from '@aragon/ui';
 
+import web3 from './web3';
+import Providers from './Providers';
 import Routes from './Routes';
 
 const App = () => {
@@ -24,15 +24,11 @@ const App = () => {
   if (error) return <Info.Alert>{'error'}</Info.Alert>;
 
   return (
-    <Main>
-      <ToastHub timeout={2000}>
-        <BrowserRouter>
-          <AppView appBar={<div />}>
-            <Routes />
-          </AppView>
-        </BrowserRouter>
-      </ToastHub>
-    </Main>
+    <Providers>
+      <AppView appBar={<div />}>
+        <Routes />
+      </AppView>
+    </Providers>
   );
 };
 

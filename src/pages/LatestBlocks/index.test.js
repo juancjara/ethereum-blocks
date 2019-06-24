@@ -3,6 +3,7 @@ import 'jest-dom/extend-expect';
 import { render, cleanup, waitForElement } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
+import Providers from '../../Providers';
 import LatestBlocks from './';
 
 //Remove warnings
@@ -36,9 +37,9 @@ it('List 20 latest blocks from ethereum', async () => {
   global.web3.eth.getBlock = mockGetBlock;
 
   const { getByTestId } = render(
-    <BrowserRouter>
+    <Providers>
       <LatestBlocks />
-    </BrowserRouter>
+    </Providers>
   );
   await waitForElement(() => getByTestId('20'));
   expect(mockGetBlockNumber).toHaveBeenCalledTimes(1);
