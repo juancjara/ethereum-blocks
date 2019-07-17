@@ -1,6 +1,13 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Ethereum latest blocks
 
-## Available Scripts
+Display last 10 blocks from ethereum network, and all transactions with ether(ether > 0 ) for each block.
+
+[demo url](https://ethereum-blocks-hmzoukfqrw.now.sh/)
+
+## UI library
+[Aragon UI](https://github.com/aragon/aragon-ui)
+
+## Scripts
 
 ### Run the project
 
